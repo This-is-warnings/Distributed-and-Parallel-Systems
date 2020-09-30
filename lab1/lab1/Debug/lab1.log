@@ -1,0 +1,6 @@
+﻿  Source.cpp
+d:\semestr_5\рипс\lab1\lab1\source.cpp(76): warning C4018: <: несоответствие типов со знаком и без знака
+d:\semestr_5\рипс\lab1\lab1\source.cpp(139): warning C4018: <: несоответствие типов со знаком и без знака
+d:\semestr_5\рипс\lab1\lab1\source.cpp(152): warning C4018: <: несоответствие типов со знаком и без знака
+d:\semestr_5\рипс\lab1\lab1\source.cpp(37): warning C4715: func: значение возвращается не при всех путях выполнения
+  lab1.vcxproj -> D:\SEMESTR_5\РиПС\lab1\Debug\lab1.exe
