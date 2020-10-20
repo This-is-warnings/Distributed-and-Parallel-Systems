@@ -63,54 +63,56 @@ int main()
 				array_of_one_thread[i][j] += arr1[i][k] * arr2[k][j];
 			}
 		}
+	}
 
-	cout << "Result: " << endl;
-	cout << setw(15);
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			cout << array_of_one_thread[i][j] << setw(15);
+		cout << "Result: " << endl;
+		cout << setw(15);
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cout << array_of_one_thread[i][j] << setw(15);
+			}
+			cout << endl;
 		}
-		cout << endl;
-	}
-	// ¬ывод в файл
+		// ¬ывод в файл
 
-	ofstream fout("one_thread.txt", ios::out);
-	fout << setw(15);
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			fout << array_of_one_thread[i][j] << setw(15);
-		}
-		fout << endl;
-	}
-	// умножение потоками
-	cout << "Thread: ";
-	array_of_n_threads = new int* [n];
-	for (int i = 0; i < n; i++)
-	{
-		array_of_n_threads[i] = new int[n];
-		for (int j = 0; j < n; j++)
-		{
-			array_of_n_threads[i][j] = 0;
-		}
-	}
-	int k;
-	cin >> k;
-	omp_set_num_threads(k);
-	#pragma omp parallel // цикл будет выполн€тьс€ в K потоков. ѕараметры цикла будут автоматически распределены между потоками.
-	{
-	#pragma omp for // прагма for помогает распределить рабочую нагрузку цикла for между несколькими потоками
+		ofstream fout("one_thread.txt", ios::out);
+		fout << setw(15);
 		for (int i = 0; i < n; i++)
 		{
 			for (int j = 0; j < n; j++)
 			{
-				for (int k = 0; k < n; k++)
-					array_of_n_threads[i][j] += arr1[i][k] * arr2[k][j];
+				fout << array_of_one_thread[i][j] << setw(15);
+			}
+			fout << endl;
+		}
+		// умножение потоками
+		cout << "Thread: ";
+		array_of_n_threads = new int* [n];
+		for (int i = 0; i < n; i++)
+		{
+			array_of_n_threads[i] = new int[n];
+			for (int j = 0; j < n; j++)
+			{
+				array_of_n_threads[i][j] = 0;
 			}
 		}
-		
-	}
+		int k;
+		cin >> k;
+		omp_set_num_threads(k);
+#pragma omp parallel 
+		{
+#pragma omp for 
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					for (int k = 0; k < n; k++)
+						array_of_n_threads[i][j] += arr1[i][k] * arr2[k][j];
+				}
+			}
+
+		}
+	
 
 	cout << "Result: " << endl;
 	cout << setw(15);
