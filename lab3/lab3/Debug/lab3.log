@@ -1,4 +1,0 @@
-﻿  Source.cpp
-D:\Studies\RIpS\lab3\lab3\Source.cpp(90,12): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-D:\Studies\RIpS\lab3\lab3\Source.cpp(38): warning C4715: func: значение возвращается не при всех путях выполнения
-  lab3.vcxproj -> D:\Studies\RIpS\lab3\Debug\lab3.exe
